@@ -9,17 +9,23 @@ public:
                 nums[i+1]=0;
             }
         }
-        int c=0;
-        for(int i=0;i<nums.size();i++)
+        int i=0,j=1;
+        while(j<nums.size())
         {
             if(nums[i]!=0)
             {
-                nums[c++]=nums[i];
+                i++;
+                j++;
             }
-        }
-        while(c<nums.size())
-        {
-            nums[c++]=0;
+            else if(nums[i]==0 && nums[j]!=0)
+            {
+                nums[i]=nums[j];
+                nums[j]=0;
+            }
+            else if(nums[i]==0 && nums[j]==0)
+            {
+                j++;
+            }
         }
         return nums;
     }
